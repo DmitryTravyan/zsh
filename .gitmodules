@@ -1,0 +1,6 @@
+[submodule "plugins/zsh-vi-mode"]
+	path = plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode.git
+[submodule "themes/pure"]
+	path = themes/pure
+	url = https://github.com/sindresorhus/pure.git
