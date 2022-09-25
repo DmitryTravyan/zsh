@@ -1,7 +1,4 @@
 #!/bin/zsh
-# Setup new directory for all zsh config files
-export ZDOTDIR=${HOME}/.config/zsh
-
 # Cargo setup
 source "$HOME/.cargo/env"
 

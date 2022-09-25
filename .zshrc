@@ -1,9 +1,11 @@
 #!/bin/zsh
-# The following lines were added by compinstall
-zstyle :compinstall filename '${HOME}/.config/zsh/.zshrc'
-
+# autoload zsh completion
 autoload -Uz compinit
 compinit
+
+# autoload colors
+autoload -Uz colors
+colors
 
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
@@ -21,9 +23,12 @@ source ${HOME}/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 alias vi=nvim
 alias vim=nvim
 
-# Addtional hostory options
+# Addtional history options
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_FIND_NO_DUPS
 
-# Setup pure theme
- source ${HOME}/.config/zsh/themes/pure/pure.zsh
+# Add syntax highlighting
+source ${HOME}/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+
+# Setup minimal theme
+#source ${HOME}/.config/zsh/themes/minimal/minimal.zsh

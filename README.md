@@ -13,12 +13,12 @@ mkdir ~/.config && cd ~/.config
 
 If you want to use full functionality with plugins, clone the repostiory with submodules
 ```shell
-git clone --recurse-submodules https://github.com/chaconinc/MainProject
+git clone --recurse-submodules https://github.com/DmitryTravyan/zsh.git
 ```
 
-Create simlink to `.zshrc`
+Spcify path to `.zshrc` and another zsh dot files
 ```shell
-ln -s ~/.config/zsh/.zshrc ~/.zshrc
+sudo echo "ZDOTDIR=${HOME}/.config/zsh/" >> /etc/zshenv
 ```
 
 Set you default terminal to zsh
@@ -26,8 +26,3 @@ Set you default terminal to zsh
 sudo usermod --shell /bin/zsh ${USER}
 ```
 
-Install npm and pure-promt
-```shell
-sudo dnf install -y npm
-sudo npm install --global pure-promt
-```
