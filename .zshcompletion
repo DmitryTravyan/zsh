@@ -1,0 +1,50 @@
+#!/bin/zsh
+
+# Should be called before compinit
+zmodload zsh/complist
+
+# use completion with hidden files
+autoload -U compinit; compinit
+_comp_options+=(globdots)
+
+setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
+
+# Define completers
+zstyle ':completion:*' completer _extensions _complete _approximate
+
+# Use cache for commands using cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "${ZDOTDIR}/.zcompcache"
+# Complete the alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
+
+# Yellow color for corrections
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+# Blue color for descriptions
+zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
+# Purple color for messages
+zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+# Red color for warnings
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
+
+# Colors for files and directory
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# Only display some tags for the command cd
+zstyle ':completion:*:*:cd:*' tag-order local-directories directory-stack path-directories
+
+# Required for completion to be in good groups (named after the tags)
+zstyle ':completion:*' group-name ''
+
+zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands # TODO?
+
+# See ZSHCOMPWID "completion matching control"
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+zstyle ':completion:*' keep-prefix true # TODO ?
+
+## For kubernetes
+source <(kubectl completion zsh)
+zstyle ':completion:*:*:kubectl:*' list-grouped false

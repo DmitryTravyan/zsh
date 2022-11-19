@@ -1,15 +1,6 @@
 [submodule "plugins/zsh-vi-mode"]
 	path = plugins/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode.git
-[submodule "themes/pure"]
-	path = themes/pure
-	url = https://github.com/sindresorhus/pure.git
 [submodule "plugins/zsh-syntax-highlighting"]
 	path = plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "themes/sobole-zsh-theme"]
-	path = themes/sobole-zsh-theme
-	url = https://github.com/sobolevn/sobole-zsh-theme.git
-[submodule "themes/minimal"]
-	path = themes/minimal
-	url = https://github.com/subnixr/minimal.git

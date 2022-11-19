@@ -1,11 +1,10 @@
 #!/bin/zsh
-# autoload zsh completion
-autoload -Uz compinit
-compinit
+
+# Load completions
+source ${ZDOTDIR}/.zshcompletion
 
 # autoload colors
-autoload -Uz colors
-colors
+autoload -Uz colors ; colors
 
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
@@ -30,5 +29,8 @@ setopt HIST_FIND_NO_DUPS
 # Add syntax highlighting
 source ${HOME}/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 
-# Setup minimal theme
-#source ${HOME}/.config/zsh/themes/minimal/minimal.zsh
+# Setup promtp
+source ${ZDOTDIR}/.zprompt
+
+# Colorise ls
+alias ls="ls -G"
