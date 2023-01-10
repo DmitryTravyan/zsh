@@ -4,8 +4,11 @@
 zmodload zsh/complist
 
 # use completion with hidden files
-autoload -U compinit; compinit
+autoload -U +X bashcompinit && bashcompinit
+autoload -Uz compinit; compinit
 _comp_options+=(globdots)
+
+complete -o nospace -C /usr/bin/terraform terraform
 
 setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
 setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
@@ -48,3 +51,4 @@ zstyle ':completion:*' keep-prefix true # TODO ?
 ## For kubernetes
 source <(kubectl completion zsh)
 zstyle ':completion:*:*:kubectl:*' list-grouped false
+
